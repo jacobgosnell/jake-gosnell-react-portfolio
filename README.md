@@ -1,5 +1,5 @@
-# React/Redux/Router Starter Project
+# Jake Gosnell React Portfolio Application
 
-> Provided for the students of the [Bottega Code School](https://bottega.tech/)
-
-*Fork from [es6-webpack2-starter](https://github.com/micooz/es6-webpack2-starter)*
+> Pull Down into your local machine
+> Install Dependencies
+> Run the Server
