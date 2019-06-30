@@ -30,7 +30,7 @@ export default class PortfolioContainer extends Component {
         axios
         .get('https://jake.devcamp.space/portfolio/portfolio_items')
         .then(response => {
-          console.log("response data", response);
+          // console.log("response data", response);
           this.setState({
               data: response.data.portfolio_items
           });
@@ -42,6 +42,7 @@ export default class PortfolioContainer extends Component {
 
       portfolioItems() {
         return this.state.data.map(item => {
+            console.log("item data",)
             return ( 
                 <PortfolioItem 
                     key={item.id} 
@@ -61,16 +62,11 @@ export default class PortfolioContainer extends Component {
         }
 
         return (
-            <div>
-                <h2>{this.state.pageTitle}</h2>
-
-                <button onClick={() => this.handleFilter('React/Gatsby')}>React/Gatsby</button>
-                <button onClick={() => this.handleFilter('HTML/CSS')}>HTML/CSS</button>
-
-                <div className="portfolio-items-wrapper">
-                    {this.portfolioItems()}
-                </div>
-                
+            <div className="portfolio-items-wrapper">
+                <button className="btn" onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
+                <button className="btn" onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
+                <button className="btn" onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
+                {this.portfolioItems()}
             </div>
         );
     }
