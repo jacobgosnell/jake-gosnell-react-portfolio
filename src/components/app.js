@@ -77,7 +77,7 @@ export default class App extends Component {
 
   authorizedRoutes() {
     return [
-      
+      <Route path="/portfolio-manager" component={PortfolioManager} />
     ]
   }
 
@@ -114,7 +114,7 @@ export default class App extends Component {
                 path="/portfolio/:slug"
                 component={PortfolioDetail}
               />
-              <Route path="/portfolio-manager" component={PortfolioManager} />
+              
               <Route component={NoMatch} />
             </Switch>
           </div>
