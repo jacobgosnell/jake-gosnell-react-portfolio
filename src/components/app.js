@@ -21,6 +21,7 @@ export default class App extends Component {
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -35,6 +36,12 @@ export default class App extends Component {
     });
   }
 
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+  
   checkLoginStatus() {
     return axios.get("https://api.devcamp.space/logged_in", {
       withCredentials: true 
@@ -67,12 +74,21 @@ export default class App extends Component {
     this.checkLoginStatus();
   }
 
+  authorizedRoutes() {
+    return [
+      <Route path="/blog" component={Blog} />
+    ]
+  }
+
   render() {
     return (
       <div className="container">
         <Router>
           <div>
-            <NavigationContainer />
+            <NavigationContainer 
+            loggedInStatus={this.state.loggedInStatus}
+            handleSuccessfulLogout={this.handleSuccessfulLogout} 
+          />
 
             <h2>{this.state.loggedInStatus}</h2>
 
@@ -92,7 +108,7 @@ export default class App extends Component {
 
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/blog" component={Blog} />
+              {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedRoutes() : null }
               <Route
                 exact
                 path="/portfolio/:slug"
