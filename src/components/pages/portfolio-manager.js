@@ -14,11 +14,11 @@ export default class PortfolioManager extends Component {
             <div>
                 <div className="portfolio-page-wrapper">
                     <div className="left-side">
-                    
+                        <h1>Portfolio form.....</h1>
                     </div>
 
-                    <div className="ride-side">
-
+                    <div className="right-side">
+                        <h1>Portfolio sidebar....</h1>
                     </div>
                 </div>
             </div>

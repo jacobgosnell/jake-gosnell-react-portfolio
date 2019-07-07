@@ -1,7 +1,6 @@
 .portfolio-page-wrapper {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    height: calc(100vh - 84px);
 
 
 
@@ -10,6 +9,6 @@
     }
 
     .right-side {
-        background-color: $grey;
+        background-color: $charcoal;
     }
 }
