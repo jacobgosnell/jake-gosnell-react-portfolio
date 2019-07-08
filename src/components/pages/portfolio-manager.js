@@ -25,6 +25,7 @@ export default class PortfolioManager extends Component {
     handleFormSubmissionError(error) {
         console.log("handleFormSubmissionError error", error);
     }
+    
     getPortfolioItems() { 
         axios.get("https://jake.devcamp.space/portfolio/portfolio_items", { 
             withCredentials: true 
