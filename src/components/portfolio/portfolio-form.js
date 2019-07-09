@@ -8,46 +8,46 @@ import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 export default class PortfolioForm extends Component {
   constructor(props) {
-      super(props)
+    super(props)
 
-      this.state = {
-          name: "",
-          description: "",
-          category: "eCommerce",
-          position: "",
-          url: "",
-          thumb_image: "",
-          banner_image: "",
-          logo: ""
-      }
-
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.componentConfig = this.componentConfig.bind(this);
-      this.djsConfig = this.djsConfig.bind(this);
-      this.handleThumbDrop = this.handleThumbDrop.bind(this);
+    this.state = {
+        name: "",
+        description: "",
+        category: "eCommerce",
+        position: "",
+        url: "",
+        thumb_image: "",
+        banner_image: "",
+        logo: ""
     }
 
-    handleThumbDrop() {
-      return {
-        addedfile: file => this.setState({ thumb_image: file })
-      }
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.componentConfig = this.componentConfig.bind(this);
+    this.djsConfig = this.djsConfig.bind(this);
+    this.handleThumbDrop = this.handleThumbDrop.bind(this);
+  }
 
-    componentConfig() {
-      return {
-        iconFiletypes: [".jpg", ".png"],
-        showFiletypeIcon: true,
-        postUrl: "https://httpbin.org/post"
-      }
+  handleThumbDrop() {
+    return {
+      addedfile: file => this.setState({ thumb_image: file })
     }
+  }
 
-    djsConfig() {
-      return {
-        addRemoveLinks: true,
-        maxFiles: 1
-      }
+  componentConfig() {
+    return {
+      iconFiletypes: [".jpg", ".png"],
+      showFiletypeIcon: true,
+      postUrl: "https://httpbin.org/post"
     }
+  }
+
+  djsConfig() {
+    return {
+      addRemoveLinks: true,
+      maxFiles: 1
+    }
+  }
 
   buildForm() {
       let formData = new FormData();
@@ -61,7 +61,7 @@ export default class PortfolioForm extends Component {
       if (this.state.thumb_image) {
         formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
       }
-      
+
       return formData;
   }
 
