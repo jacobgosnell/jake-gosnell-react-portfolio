@@ -25,23 +25,29 @@ export default class PortfolioForm extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.componentConfig = this.componentConfig.bind(this);
       this.djsConfig = this.djsConfig.bind(this);
-  }
-
-  //react dropzone component documentation
-  componentConfig() {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
+      this.handleThumbDrop = this.handleThumbDrop.bind(this);
     }
-  }
 
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1
+    handleThumbDrop() {
+      return {
+        addedfile: file => this.setState({ thumb_image: file })
+      }
     }
-  }
+
+    componentConfig() {
+      return {
+        iconFiletypes: [".jpg", ".png"],
+        showFiletypeIcon: true,
+        postUrl: "https://httpbin.org/post"
+      }
+    }
+
+    djsConfig() {
+      return {
+        addRemoveLinks: true,
+        maxFiles: 1
+      }
+    }
 
   buildForm() {
       let formData = new FormData();
@@ -52,6 +58,10 @@ export default class PortfolioForm extends Component {
       formData.append("portfolio_item[category]", this.state.category);
       formData.append("portfolio_item[position]", this.state.position);
 
+      if (this.state.thumb_image) {
+        formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
+      }
+      
       return formData;
   }
 
@@ -135,6 +145,7 @@ export default class PortfolioForm extends Component {
                   <DropzoneComponent
                     config={this.componentConfig()}
                     djsConfig={this.djsConfig()}
+                    eventHandlers={this.handleThumbDrop()}
                   >
                   
                   </DropzoneComponent>
