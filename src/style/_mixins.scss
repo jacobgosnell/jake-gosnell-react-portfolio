@@ -4,7 +4,7 @@
     font-size: 1em;
     font-weight: 500;
     border: 1px solid transparent;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
     background-color: $teal;
     color: white;
 
@@ -37,4 +37,9 @@
             border-bottom: 1px solid $dark-teal;
         }
     }
+}
+
+@mixin base-grid() {
+    display: grid;
+    grid-gap: 21px;
 }
