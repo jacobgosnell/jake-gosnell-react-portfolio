@@ -1,16 +1,16 @@
 .portfolio-page-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 
-    .btn {
-        width: 100px;
-    }
+  .btn {
+    width: 100px;
+  }
 
-    .left-side {
-        background-color: $offwhite;
-    }
+  .left-side {
+    background-color: $offwhite;
+  }
 
-    .right-side {
-        background-color: $charcoal;
-    }
+  .right-side {
+    background-color: $charcoal;
+  }
 }
